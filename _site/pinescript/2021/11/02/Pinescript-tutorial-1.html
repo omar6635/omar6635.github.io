@@ -11,14 +11,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Welcome to the first part of the Pinescript tutorial series! Here you will learn how to leverage the power of Pinescript to create a robust and fundamentally sound Algorithm all in Tradingview." />
 <meta property="og:description" content="Welcome to the first part of the Pinescript tutorial series! Here you will learn how to leverage the power of Pinescript to create a robust and fundamentally sound Algorithm all in Tradingview." />
-<link rel="canonical" href="http://localhost:4000/pinescript/2021/11/02/Pinescript.html" />
-<meta property="og:url" content="http://localhost:4000/pinescript/2021/11/02/Pinescript.html" />
+<link rel="canonical" href="http://localhost:4000/pinescript/2021/11/02/Pinescript-tutorial-1.html" />
+<meta property="og:url" content="http://localhost:4000/pinescript/2021/11/02/Pinescript-tutorial-1.html" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-11-02T13:06:39+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Pinescript tutorial 1" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/pinescript/2021/11/02/Pinescript.html","headline":"Pinescript tutorial 1","dateModified":"2021-11-02T13:06:39+01:00","datePublished":"2021-11-02T13:06:39+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pinescript/2021/11/02/Pinescript.html"},"description":"Welcome to the first part of the Pinescript tutorial series! Here you will learn how to leverage the power of Pinescript to create a robust and fundamentally sound Algorithm all in Tradingview.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/pinescript/2021/11/02/Pinescript-tutorial-1.html","headline":"Pinescript tutorial 1","dateModified":"2021-11-02T13:06:39+01:00","datePublished":"2021-11-02T13:06:39+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pinescript/2021/11/02/Pinescript-tutorial-1.html"},"description":"Welcome to the first part of the Pinescript tutorial series! Here you will learn how to leverage the power of Pinescript to create a robust and fundamentally sound Algorithm all in Tradingview.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=">
@@ -69,10 +69,6 @@
     <li class="fork"><a href="/posts.html">Blog</a></li>
         
   
-
-    <li class="fork"><a href="/staff.html">Authors</a></li>
-        
-  
     </ul>
 </nav>
 
@@ -93,34 +89,34 @@
 
 <p>Start by going to the <a href="https://tradingview.com" target="_blank">TV website</a> and sign up if you don’t already have an account. Once you’re done, open the charts by clicking the little icon at the top left and on then on “Chart”.</p>
 
-<p>You’re almost ready, now you just need to insert the indicator to your chart. Do this by clicking at the “Fx” icon at the top middle and typing “Moving Average” in the search bar. Choose the first result from the built-in indicators.</p>
+<p>You’re almost ready, now you just need to insert the indicator into your chart. Do this by clicking at the “Fx” icon at the top middle and typing “Moving Average” in the search bar. Choose the first result from the built-in indicators.</p>
 
 <p>A blue moving average should get plotted on your chart. You will also see the indicator name and its value on the current candle you are hovering on with your crosshair at the top left. Hovering over this will give you a couple of options. The one we’re interested in is the source code option represented by a two curly brackets icon. Clicking on this should prompt the Pine Editor to open from the bottom. You should see the following code:</p>
 
-<p>The first line defines the version of pinescript and HAS to be prefixed by two slashes and an at sign so the pinescript compiler (the tool that runs the program) can run it. Code written in previous versions will have a different version number, <strong>don’t change that number on those indicators</strong> unless you’re ready for some serious bug fixing.</p>
+<pre><code><span style="color: gray;">//@version=5</span>
+<span style="color:#00B6FF;">indicator</span>(title=<span style="color:#79F293">"Moving Average"</span>, shorttitle=<span style="color:#79F293">"MA"</span>, overlay=<span style="color:#FA941E">true</span>, timeframe="", timeframe_gaps=<span style="color:#FA941E">true</span>)
+len = <span style="color:#00B6FF;">input.int</span>(<span style="color:#FA941E;">9</span>, minval=<span style="color:#FA941E;">1</span>, title=<span style="color:#79F293;">"Length"</span>)
+src = <span style="color:#00B6FF;">input</span>(<span style="color:#F73B3B;">close</span>, title=<span style="color:#79F293">"Source"</span>)
+offset = <span style="color:#00B6FF;">input.int</span>(title=<span style="color:#00B6FF;">"Offset"</span>, defval=<span style="color:#FA941E">0</span>, minval=<span style="color:#FA941E">-500</span>, maxval=<span style="color:#FA941E">500</span>)
+out = <span style="color:#00B6FF;">ta.sma</span>(src, len)
+<span style="color:#00B6FF;">plot</span>(out, color=<span style="color:#F73B3B;">color.blue</span>, title=<span style="color:#79F293">"MA"</span>, offset=offset)
+</code></pre>
 
-<p>Different information is provided for the <code class="highlighter-rouge">indicator()</code> function using <strong>parameters</strong>. Parameters are values that a function can take and process. Some parameters are mandatory and some are optional.</p>
+<p>The first line defines the version of pinescript and <em>HAS</em> to be prefixed by two slashes and an at sign so the pinescript compiler (the tool that runs the program) can run it. Code written in previous versions will have a different version number, <strong>don’t change that number on those indicators</strong> unless you’re ready for some serious bug fixing.</p>
 
-<p>Variables like <code class="highlighter-rouge">len</code> are defined by using first typing a variable name and then an equal sign and a value for that variable. In the case of <code class="highlighter-rouge">len</code>, the value is an <strong>integer input function</strong>. Integer means that the value is a whole number and input means the user can change it without having to change the code using the cogwheel icon. I’ll teach you how to do this later.</p>
+<p>Different information is provided for the <code class="highlighter-rouge">indicator()</code> function using parameters. Parameters are values that a function can take and process. Some parameters are mandatory and some are optional.</p>
 
-<p>In the example of the variable <code class="highlighter-rouge">out</code> has the value <code class="highlighter-rouge">ta.sma</code>. <code class="highlighter-rouge">ta</code> stands for “Technical Analysis” and <code class="highlighter-rouge">sma</code> for “Simple Moving Average”. The SMA belongs the the TA family of indicators, which explains the syntax. This function takes two mandatory parameters and returns a Simple moving average.</p>
+<p>Variables like <code class="highlighter-rouge">len</code> are defined by using first typing a variable name and then an equal sign and a value for that variable. In the case of <code class="highlighter-rouge">len</code>, the value is an integer input function. Integer means that the value is a whole number and input means the user can change it without having to change the code using the cogwheel icon. I’ll teach you how to do this later.</p>
+
+<p>In the example of the variable <code class="highlighter-rouge">out</code> has the value <code class="highlighter-rouge">ta.sma</code>. <code class="highlighter-rouge">ta</code> stands for “Technical Analysis” and <code class="highlighter-rouge">sma</code> for “Simple Moving Average”. The SMA belongs the the TA family of indicators, which explains the syntax. This function takes two mandatory parameters and returns a Simple Moving Average.</p>
 
 <blockquote>
   <p>Pro tip: holding “ctrl” and clicking on a function pulls up the TV documentation. Here you will find info about the function and its different arguments. If you ever forget the syntax for something, don’t forget to use it!</p>
 </blockquote>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>The created indicator that was saved in the <code class="highlighter-rouge">out</code> variable is then outputted to the chart using the <code class="highlighter-rouge">plot</code> function.</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
-
+<p>Alright! That’s it for this first tutorial. I hope you learned something new. The link for part 2 can be found <a href="../02/Pinescript-tutorial-2.html">here</a>.</p>
  
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/omar6635" target="_blank">omar6635</a></span>
