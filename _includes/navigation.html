@@ -1,9 +1,16 @@
-<nav>
-    <ul>
-  {% for item in site.data.navigation %}
-
-    <li class="fork"><a href="{{ item.link }}">{{ item.name }}</a></li>
-        
-  {% endfor %}
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">3HEADFX</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {%for element in site.data.navigation%}
+        <li class="nav-item">
+          <a class="nav-link {% if site.url == element.link %} active {% endif %}" {% if page.url == element.link %} style="color: black; font-size: 20px;" {% endif %} href="{{element.link}}">{{element.name}}</a>
+        </li>
+        {% endfor %}
+      </ul>s
+  </div>
 </nav>

@@ -1,7 +1,6 @@
 collections:
   authors:
     output: true
-owner.url: https://github.com/omar6635
 defaults:
   - scope:
       path: ""
