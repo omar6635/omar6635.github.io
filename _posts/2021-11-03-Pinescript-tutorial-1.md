@@ -38,3 +38,4 @@ In the example of the variable `out` has the value `ta.sma`. `ta` stands for "Te
 The created indicator that was saved in the `out` variable is then outputted to the chart using the `plot` function.
 
 Alright! That's it for this first tutorial. I hope you learned something new. The link for part 2 can be found [here](../02/Pinescript-tutorial-2.html).
+

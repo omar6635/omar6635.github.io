@@ -97,7 +97,25 @@
     </li>
   
 </ul>
- 
+<button id="btn">
+  <p id="btnText">Submit</p>
+  <div class="check-box">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+    <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+  </svg>
+  </div>
+  <script>
+  var btn = document.getElementById("btn");
+  var btnText = document.getElementById("btnText");
+  
+  btn.onclick = function(){
+    btnText.innerHTML = "Thanks";
+    btn.classList.add("active")
+  }
+  
+  </script>
+  </button>
+  </div> 
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/omar6635" target="_blank">omar6635</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
