@@ -401,3 +401,37 @@ svg path{
   stroke-dashoffset: 0;
   transition: 1s;
 }
+
+.nav-items {
+  color:white;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-items > li {
+  padding: 15px 15px;
+}
+.nav-items > li:hover{
+  background: #46494C;
+}
+
+.nav-link{
+  color: white;
+  font-size: 20px;
+}
+
+#navbar{
+  background: darkgray; 
+  height: 60px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li.active{
+  background: #46494C;
+}
+
