@@ -925,4 +925,4 @@ li.active {
   to {
     transform: translateX(150); } }
 .move-button {
-  animation: moving-right 2s linear; }
+  animation: moving-right 2s linear forwards; }

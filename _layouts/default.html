@@ -63,11 +63,13 @@
       <script>
         var button = document.getElementById("open-navbar")
         function openSidebar(){
-          document.getElementById("sidebar").style.display = "flex"
-          button.classList.add("move-button")
-        }
-        function closeSidebar(){
-          document.getElementById("sidebar").style.display = "none"
+          if (document.getElementById("sidebar").style.display == "none"){
+            document.getElementById("sidebar").style.display = "flex"
+            button.classList.add("move-button")
+        } else{
+            document.getElementById("sidebar").style.display = "none"
+            button.classList.remove("move-button")
+          }
         }
       </script>
   </body>
