@@ -15,22 +15,21 @@
     <link rel="stylesheet" href="{{ '/assets/css/ie.css' | relative_url }}">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     {% include head-custom.html %}
   </head>
   <body>
-    <div id="navbar" class="navbar">
-      <nav>
-        <ul>
-          <div class="nav-items">
-              {% for element in site.data.navigation %}
-              <li {% if page.url == element.link %} class="active" {% endif %}>
-                <a class="nav-link"  href="{{element.link}}">{{element.name}}</a>
-              </li>
-              {% endfor %}
-            </div>
-            </ul>
-      </nav>
-      </div>
+   
+    {% include navigation.html %}
+    <button onclick="openSidebar()" id="open-navbar">&#9776;</button>
+    <div class="flex-container">
+    <div id="sidebar" style="display: none;">
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+    </div>
     <div class="wrapper">
       
       <section>
@@ -46,7 +45,7 @@
       </section>
 
     </div>
-
+  </div>
     <script>
       window.onscroll = function() {scrollFuntion()}; // window refers to the html document itself
       
@@ -56,10 +55,20 @@
       function scrollFuntion(){
         if (window.pageYOffset > sticky){ // The pageXOffset and pageYOffset properties returns the pixels the current document has been scrolled from the upper left corner of the window, horizontally and vertically.
           header.classList.add("sticky");
-        } else {
+        } else if (window.pageYOffset < sticky){
           header.classList.remove("sticky");
         }
       }
+      </script>
+      <script>
+        var button = document.getElementById("open-navbar")
+        function openSidebar(){
+          document.getElementById("sidebar").style.display = "flex"
+          button.classList.add("move-button")
+        }
+        function closeSidebar(){
+          document.getElementById("sidebar").style.display = "none"
+        }
       </script>
   </body>
 </html>

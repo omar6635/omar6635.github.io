@@ -13,6 +13,9 @@ title: Blog
     </li>
   {% endfor %}
 </ul>
+
+<div id="toc"></div>
+<!--
 <button id="btn">
   <p id="btnText">Submit</p>
   <div class="check-box">
@@ -28,7 +31,13 @@ title: Blog
     btnText.innerHTML = "Thanks";
     btn.classList.add("active")
   }
-  
   </script>
+  -->
+   <script src="assets/js/toc.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function() {
+        $('#toc').toc();
+    });
+    </script>
   </button>
   </div>

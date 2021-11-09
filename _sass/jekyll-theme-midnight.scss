@@ -76,8 +76,8 @@ strong {
 }
 
 .wrapper {
-  max-width:650px;
-  margin:0 auto;
+  max-width:2000px;
+  margin: 0 auto;
   position:relative;
   padding: 0 20px;
 }
@@ -237,7 +237,7 @@ dt {
 }
 
 section {
-  max-width:650px;
+  max-width: 2000px;
   padding: 30px 0px 50px 0px;
   margin: 20px 0;
   margin-top: 70px;
@@ -339,7 +339,7 @@ section {
   justify-content: center;
 }
 
-button{
+button.special{
   width: 270px;
   height: 80px;
   border: 0;
@@ -433,5 +433,64 @@ svg path{
 
 li.active{
   background: #46494C;
+}
+
+#sidebar{
+width: 15%;
+height: 1000px;
+background: darkred;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-size: 20px;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+}
+
+#sidebar > div:first-child{
+  margin-top: 60px;
+}
+
+#sidebar > div{
+  width: -webkit-fill-available;
+  padding-left: 20px;
+}
+
+#sidebar > div:hover{
+  cursor: pointer;
+  background: lightblue;
+}
+
+#open-navbar{
+  position:absolute;
+  top: 75px;
+  left: 10px;
+  color: white;
+  font-size: 30px;
+  border: none;
+  background: transparent;
+}
+
+#open-navbar:hover{
+  background-color: red;
+  color: black;
+  cursor: pointer;  
+}
+
+@keyframes moving-right{
+  from{
+    transform: translateX(0)
+  }
+  to{
+    transform: translateX(150)
+  }
+  }
+
+  
+.move-button{
+  animation: moving-right 2s linear;
 }
 

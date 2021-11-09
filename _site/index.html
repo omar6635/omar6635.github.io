@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="/assets/css/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup theme-color -->
@@ -48,33 +49,48 @@
 
   </head>
   <body>
-    <div id="navbar" class="navbar">
-      <nav>
-        <ul>
-          <div class="nav-items">
-              
-              <li  class="active" >
-                <a class="nav-link"  href="/">Home</a>
-              </li>
-              
-              <li >
-                <a class="nav-link"  href="/about.html">about</a>
-              </li>
-              
-              <li >
-                <a class="nav-link"  href="/posts.html">Blog</a>
-              </li>
-              
-            </div>
-            </ul>
-      </nav>
-      </div>
+   
+    <div id="navbar">
+<nav>
+    <ul class="nav-items">
+        
+        <li ><a class="nav-link" href="/">Home</a></li>
+        
+        <li ><a class="nav-link" href="/about.html">about</a></li>
+        
+        <li ><a class="nav-link" href="/posts.html">Blog</a></li>
+        
+    </ul>
+</nav>
+</div>
+
+
+    <button onclick="openSidebar()" id="open-navbar">&#9776;</button>
+    <div class="flex-container">
+    <div id="sidebar" style="display: none;">
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+    </div>
     <div class="wrapper">
       
       <section>
         <div id="title">
-          <h1 id="welcome-to-my-blog">Welcome to my blog!</h1>
+          <h1 id="table-of-contents">Table of contents</h1>
+<ol>
+  <li><a href="#welcome">Welcome to my blog!</a></li>
+  <li><a href="#what-is-this">What is this blog and who is it for? </a></li>
+  <li><a href="#requirements">What do i need to know/have to get started?</a></li>
+</ol>
+
+<div id="welcome" />
+
+<h1 id="welcome-to-my-blog">Welcome to my blog!</h1>
 <p>We’re glad you decided to visit us today!</p>
+<div id="what-is-this" />
+
 <h2 id="what-is-this-blog-and-who-is-it-for">What is this blog and who is it for?</h2>
 
 <p>How does one go about learning the basics and fundamentals of forex as a complete beginner? How can i develop a winning forex algorithm that can bring me consistent profits when the market is liquid and keep me out when it’s dry as a desert? How do i take off the huge emotional load that trading puts on my shoulders? Is it even possible to make money in a market where more than 90% of the participants are either losing money, breaking even or barely getting by with tiny profit margins?</p>
@@ -82,6 +98,7 @@
 <p>Every trader has asked themselves these questions at one point or another in their trading journey. Do you want answers and real talk? Are you tired of people who no nothing about forex trying to shove their lackluster courses down your throat? Then this is the perfect blog for you.</p>
 
 <p>This blog will be focused on bringing you, the beginner (or maybe advanced) trader, to the next level, or at least teach you something new that will net you a couple extra pips. We here at IT focus on automation of the principles of NNFX in the backtesting and forward testing. We like our testing short, effective and of a significant sample size. This absolutely doesn’t mean you should be in a rush to set up your first forex account and then fail miserably cause you don’t know what you are doing. We want you to be as ready as possible by teaching you how to build a robust system from the ground up and test its effectivness in the live markets and finally, actually trade with it.</p>
+<div id="requirements" />
 
 <h2 id="what-do-i-need-to-knowhave-to-get-started">What do i need to know/have to get started?</h2>
 
@@ -101,7 +118,7 @@
       </section>
 
     </div>
-
+  </div>
     <script>
       window.onscroll = function() {scrollFuntion()}; // window refers to the html document itself
       
@@ -111,10 +128,20 @@
       function scrollFuntion(){
         if (window.pageYOffset > sticky){ // The pageXOffset and pageYOffset properties returns the pixels the current document has been scrolled from the upper left corner of the window, horizontally and vertically.
           header.classList.add("sticky");
-        } else {
+        } else if (window.pageYOffset < sticky){
           header.classList.remove("sticky");
         }
       }
+      </script>
+      <script>
+        var button = document.getElementById("open-navbar")
+        function openSidebar(){
+          document.getElementById("sidebar").style.display = "flex"
+          button.classList.add("move-button")
+        }
+        function closeSidebar(){
+          document.getElementById("sidebar").style.display = "none"
+        }
       </script>
   </body>
 </html>

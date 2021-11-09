@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/assets/css/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup theme-color -->
@@ -45,27 +46,31 @@
 
   </head>
   <body>
-    <div id="navbar" class="navbar">
-      <nav>
-        <ul>
-          <div class="nav-items">
-              
-              <li >
-                <a class="nav-link"  href="/">Home</a>
-              </li>
-              
-              <li >
-                <a class="nav-link"  href="/about.html">about</a>
-              </li>
-              
-              <li >
-                <a class="nav-link"  href="/posts.html">Blog</a>
-              </li>
-              
-            </div>
-            </ul>
-      </nav>
-      </div>
+   
+    <div id="navbar">
+<nav>
+    <ul class="nav-items">
+        
+        <li ><a class="nav-link" href="/">Home</a></li>
+        
+        <li ><a class="nav-link" href="/about.html">about</a></li>
+        
+        <li ><a class="nav-link" href="/posts.html">Blog</a></li>
+        
+    </ul>
+</nav>
+</div>
+
+
+    <button onclick="openSidebar()" id="open-navbar">&#9776;</button>
+    <div class="flex-container">
+    <div id="sidebar" style="display: none;">
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+    </div>
     <div class="wrapper">
       
       <section>
@@ -101,7 +106,7 @@
       </section>
 
     </div>
-
+  </div>
     <script>
       window.onscroll = function() {scrollFuntion()}; // window refers to the html document itself
       
@@ -111,10 +116,20 @@
       function scrollFuntion(){
         if (window.pageYOffset > sticky){ // The pageXOffset and pageYOffset properties returns the pixels the current document has been scrolled from the upper left corner of the window, horizontally and vertically.
           header.classList.add("sticky");
-        } else {
+        } else if (window.pageYOffset < sticky){
           header.classList.remove("sticky");
         }
       }
+      </script>
+      <script>
+        var button = document.getElementById("open-navbar")
+        function openSidebar(){
+          document.getElementById("sidebar").style.display = "flex"
+          button.classList.add("move-button")
+        }
+        function closeSidebar(){
+          document.getElementById("sidebar").style.display = "none"
+        }
       </script>
   </body>
 </html>
